@@ -11,5 +11,6 @@ class MessageViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
 
+        # using a special response on delete as per project spec
         content = { 'success': True }
         return Response(content, status=status.HTTP_200_OK)
