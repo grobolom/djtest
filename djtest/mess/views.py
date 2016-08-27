@@ -7,7 +7,9 @@ class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
 
-    def perform_destroy(self, instance):
-        instance.delete()
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+
         content = { 'success': True }
         return Response(content, status=status.HTTP_200_OK)
