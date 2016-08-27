@@ -1,4 +1,4 @@
-from djtest.mess import Message
+from .models import Message
 from rest_framework import serializers
 
 class MessageSerializer(serializers.HyperlinkedModelSerializer):
