@@ -9,4 +9,5 @@ class MessageViewSet(viewsets.ModelViewSet):
 
     def perform_destroy(self, instance):
         instance.delete()
-        return Response(data='{message:"success"}', status=status.HTTP_200_OK)
+        content = { 'success': True }
+        return Response(content, status=status.HTTP_200_OK)
